@@ -33,9 +33,9 @@ public class WikipediaService {
 
             JsonNode pathNode = root.path("query").path("pages");
 
-            String fieldName = pathNode.fieldNames().next();
+            String extractSection = pathNode.fieldNames().next();
 
-            extract = pathNode.path(fieldName).get("extract").textValue();
+            extract = pathNode.path(extractSection).get("extract").textValue();
         } catch (IOException e) {
             e.printStackTrace();
         }catch (HttpClientErrorException e) {
