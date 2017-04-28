@@ -22,13 +22,11 @@ public class CoverArtArchiveService {
 
     public String getAlbumImageByMBiD(String id) {
 
-        ResponseEntity<String> response;
-        JsonNode root;
         String imgPath = "NOT FOUND";
 
         try {
-          response = restTemplate.getForEntity(COVER_ART_ARCHIVE_API_URL +"release-group/"+"2a0981fb-9593-3019-864b-ce934d97a16e", String.class);
-          root = mapper.readTree(response.getBody());
+          ResponseEntity<String> response = restTemplate.getForEntity(COVER_ART_ARCHIVE_API_URL +"release-group/"+"2a0981fb-9593-3019-864b-ce934d97a16e", String.class);
+          JsonNode root = mapper.readTree(response.getBody());
           Iterator<JsonNode> imageNode = root.path("images").elements();
 
           if (imageNode.hasNext()){
