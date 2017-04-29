@@ -19,6 +19,11 @@ public class WikipediaService {
     private RestTemplate restTemplate = new RestTemplate();
     private ObjectMapper mapper = new ObjectMapper();
 
+    /**
+     * Getting the description from Wikipedia
+     * @param title artist title
+     * @return the description
+     */
     public String getExtract(String title) {
 
         String extract = "NOT FOUND";

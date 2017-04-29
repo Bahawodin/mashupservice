@@ -22,6 +22,11 @@ public class MashupService {
     @Autowired
     private CoverArtArchiveService coverArtArchiveService;
 
+    /**
+     * Method for creating the Mashup for a specified Music Barinz ID
+     * @param mbid Music Barinz ID
+     * @return the requested Mashup
+     */
     public MashupRequest getRequest(String mbid) {
 
         MashupRequest mashupRequest = new MashupRequest();

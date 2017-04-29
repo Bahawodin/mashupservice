@@ -19,6 +19,11 @@ public class MusicBrainzSerivce {
     private RestTemplate restTemplate = new RestTemplate();
     private ObjectMapper mapper = new ObjectMapper();
 
+    /**
+     * Method for getting Artist info from Music Brainz API
+     * @param mbid Music Barinz ID
+     * @return a JsonNode with the artist info
+     */
     public JsonNode getArtistResourceByMBiD(String mbid) {
 
         JsonNode root = null;

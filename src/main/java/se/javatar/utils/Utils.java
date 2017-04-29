@@ -12,6 +12,11 @@ import java.util.List;
  */
 public class Utils {
 
+    /**
+     * Exctract wikipedia path
+     * @param node Json Object
+     * @return the path
+     */
     public static String extractWikipediaPath(JsonNode node) {
         String wikiPath = null;
         Iterator<JsonNode> elements = node.elements();
@@ -31,12 +36,17 @@ public class Utils {
         return wikiPath;
     }
 
+    /**
+     * Collect Artist albums
+     * @param jsonNode Json Object
+     * @return
+     */
     public static List<Album> collectArtistAlbums(JsonNode jsonNode) {
         List<Album> albumList = new ArrayList<>();
         Iterator<JsonNode> elements = jsonNode.path("release-groups").elements();
 
         if (elements != null) {
-            elements.forEachRemaining((JsonNode node) -> {
+            elements.forEachRemaining((node) -> {
                 if (node.get("primary-type").textValue().equalsIgnoreCase("album")) {
                     albumList.add(new Album(node.get("id").textValue(), node.get("title").textValue(), null));
                 }

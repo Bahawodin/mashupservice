@@ -20,6 +20,11 @@ public class CoverArtArchiveService {
     private RestTemplate restTemplate = new RestTemplate();
     private ObjectMapper mapper = new ObjectMapper();
 
+    /**
+     * Method for getting the Album cover image from Cover Art Archive
+     * @param id album id
+     * @return a String representing link to the image
+     */
     public String getAlbumImageByMBiD(String id) {
 
         String imgPath = "NOT FOUND";
