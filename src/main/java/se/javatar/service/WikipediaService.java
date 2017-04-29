@@ -19,15 +19,15 @@ public class WikipediaService {
     private RestTemplate restTemplate = new RestTemplate();
     private ObjectMapper mapper = new ObjectMapper();
 
-    public String getExtract(String title){
+    public String getExtract(String title) {
 
         String extract = "NOT FOUND";
 
         try {
 
             ResponseEntity<String> response
-                 = restTemplate.getForEntity(WIKIPEDIA_API_URL+"?action=query&format=json&prop=extracts&exintro=true&redirects=true&titles="+title,
-                 String.class);
+                    = restTemplate.getForEntity(WIKIPEDIA_API_URL + "?action=query&format=json&prop=extracts&exintro=true&redirects=true&titles=" + title,
+                    String.class);
 
             JsonNode root = mapper.readTree(response.getBody());
 
@@ -38,7 +38,7 @@ public class WikipediaService {
             extract = pathNode.path(extractSection).get("extract").textValue();
         } catch (IOException e) {
             e.printStackTrace();
-        }catch (HttpClientErrorException e) {
+        } catch (HttpClientErrorException e) {
             e.printStackTrace();
         }
         return extract;

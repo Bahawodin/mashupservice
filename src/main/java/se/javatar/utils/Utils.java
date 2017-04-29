@@ -16,21 +16,21 @@ public class Utils {
         String wikiPath = null;
         Iterator<JsonNode> elements = node.elements();
 
-        while (elements.hasNext()){
+        while (elements.hasNext()) {
             JsonNode relationNode = elements.next();
             if (relationNode.get("type").textValue().equals("wikipedia")) {
-                wikiPath =  relationNode.path("url").get("resource").textValue();
+                wikiPath = relationNode.path("url").get("resource").textValue();
                 break;
             }
         }
 
-        if(wikiPath!=null){
+        if (wikiPath != null) {
             String[] pathSplitArr = wikiPath.split("/");
-            wikiPath = pathSplitArr[pathSplitArr.length-1];
+            wikiPath = pathSplitArr[pathSplitArr.length - 1];
         }
         return wikiPath;
     }
-    
+
     public static List<Album> collectArtistAlbums(JsonNode jsonNode) {
         List<Album> albumList = new ArrayList<>();
         Iterator<JsonNode> elements = jsonNode.path("release-groups").elements();
@@ -42,7 +42,7 @@ public class Utils {
                 }
             });
         }
-        
+
         return albumList;
     }
 }

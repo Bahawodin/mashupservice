@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author Ajmal Bahawodin {@literal <mailto:ajmal@javatar.se/>}
  */
-public class Album implements Serializable{
+public class Album implements Serializable {
 
     private String id;
 

@@ -22,7 +22,7 @@ public class MashupService {
     @Autowired
     private CoverArtArchiveService coverArtArchiveService;
 
-    public MashupRequest getRequest(String mbid){
+    public MashupRequest getRequest(String mbid) {
 
         MashupRequest mashupRequest = new MashupRequest();
 

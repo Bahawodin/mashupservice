@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author Ajmal Bahawodin {@literal <mailto:ajmal@javatar.se/>}
  */
-public class MashupRequest implements Serializable{
+public class MashupRequest implements Serializable {
 
     private String mbid;
 

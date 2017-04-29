@@ -25,18 +25,18 @@ public class CoverArtArchiveService {
         String imgPath = "NOT FOUND";
 
         try {
-          ResponseEntity<String> response = restTemplate.getForEntity(COVER_ART_ARCHIVE_API_URL +"release-group/"+"2a0981fb-9593-3019-864b-ce934d97a16e", String.class);
-          JsonNode root = mapper.readTree(response.getBody());
-          Iterator<JsonNode> imageNode = root.path("images").elements();
+            ResponseEntity<String> response = restTemplate.getForEntity(COVER_ART_ARCHIVE_API_URL + "release-group/" + "2a0981fb-9593-3019-864b-ce934d97a16e", String.class);
+            JsonNode root = mapper.readTree(response.getBody());
+            Iterator<JsonNode> imageNode = root.path("images").elements();
 
-          if (imageNode.hasNext()){
-              imgPath = imageNode.next().get("image").textValue();
-          }
-          return imgPath;
+            if (imageNode.hasNext()) {
+                imgPath = imageNode.next().get("image").textValue();
+            }
+            return imgPath;
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }catch (HttpClientErrorException e){
+        } catch (HttpClientErrorException e) {
             e.printStackTrace();
         }
 

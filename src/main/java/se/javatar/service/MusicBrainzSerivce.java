@@ -25,11 +25,11 @@ public class MusicBrainzSerivce {
 
         try {
             ResponseEntity<String> response
-                    = restTemplate.getForEntity(MUSIC_BRAINZ_API_URL+"/artist/"+mbid+"?&fmt=json&inc=url-rels+release-groups", String.class);
+                    = restTemplate.getForEntity(MUSIC_BRAINZ_API_URL + "/artist/" + mbid + "?&fmt=json&inc=url-rels+release-groups", String.class);
             root = mapper.readTree(response.getBody());
         } catch (IOException e) {
             e.printStackTrace();
-        }catch (HttpClientErrorException e){
+        } catch (HttpClientErrorException e) {
             e.printStackTrace();
         }
 
